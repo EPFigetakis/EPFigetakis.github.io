@@ -1,0 +1,126 @@
+.cutive-mono-regular {
+    font-family: "Cutive Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    position: relative;
+    margin: 40px;
+    padding: 40px;
+    border: 2px solid #000000;
+    min-height: calc(100vh - 80px);
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+
+.top-left{
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.name-heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.tagline {
+    font-family: "Cutive Mono", monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: .8rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 0 15px 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+header img {
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+    font-family: "Cutive Mono", monospace;
+    font-style: normal;
+    font-weight: 400;
+    transition: color .4s ease-in-out;
+}
+
+.links a:hover{
+    color: #afafaf;
+}
+
+
+.links a:active{
+    font-weight: bold;
+    color: #5a5a5a;
+    border-bottom: 2px solid #5a5a5a;
+}
+
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+.nav-link:hover {
+    color: #afafaf;
+  }
+
+
+.nav-link.active {
+    color: #5a5a5a;
+    border-bottom: 2px solid #5a5a5a;
+}
+
+
+footer {
+    position: fixed;
+    margin: 15px;
+    left: 20px;
+    bottom: 0px;
+    font-size: .8rem;
+    color: #777;
+}
