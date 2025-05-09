@@ -77,6 +77,7 @@ p {
 
 .links {
     display: flex;
+    z-index: 2;
     flex-direction: column;
     gap: 15px;
     margin-top: 50px;
