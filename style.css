@@ -12,6 +12,8 @@
     min-height: calc(100vh - 80px);
     box-sizing: border-box;
     margin-top: 50px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .top-left{
@@ -195,3 +197,38 @@ footer {
     animation: blink 1s step-start infinite;
     vertical-align: bottom;
 }
+
+@media screen and (max-width: 768px) {
+    .top-left {
+      position: static;
+      margin-bottom: 1rem;
+    }
+  
+    .name-heading {
+      font-size: 1.4rem;
+    }
+  
+    .tagline {
+      font-size: 0.9rem;
+      max-width: 100%;
+    }
+  
+    .links {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .terminal-window {
+      position: static;
+      width: 100%;
+      max-width: 100%;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+  
+    footer {
+      position: static;
+      text-align: center;
+      margin-top: 2rem;
+    }
+  }
