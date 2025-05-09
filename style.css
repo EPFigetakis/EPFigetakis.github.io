@@ -124,3 +124,44 @@ footer {
     font-size: .8rem;
     color: #777;
 }
+
+
+.terminal-window {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Consolas', 'Courier New', monospace;
+  padding: 1rem;
+  border-radius: 6px;
+  width: fit-content;
+  max-width: 80%;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1;
+}
+
+.terminal-line {
+  white-space: nowrap;
+  font-size: 1rem;
+}
+
+.prompt {
+  margin-right: 0.5rem;
+}
+
+.cmd::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background-color: #fff;
+  margin-left: 2px;
+  animation: blink 1s step-start infinite;
+  vertical-align: bottom;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
