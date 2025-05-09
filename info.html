@@ -19,7 +19,13 @@
 
 <body>
 
-<div class="container">
+<div class="container theme-windows">
+
+    <div class="terminal-window">
+        <div id="terminal-output" class="terminal-output"></div>
+      </div>
+
+
     <div class="top-left">
         <div class="cutive-mono-regular name-heading"> Emanuel Peter Figetakis</div>
             <p class="tagline">PhD Candidate | Artificial Intelligence | Intelligent Systems</p>
@@ -47,7 +53,104 @@
         &copy; 2025 Emanuel Peter Figetakis. All rights reserved.
     </footer>
 
-  <script src="script.js"></script>
-</body>
+ <script src="script.js"></script>
+ <script>
+    const terminalOutput = document.getElementById('terminal-output');
+    function getCommands() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('en-US', { hour12: true });
+      const date = now.toLocaleDateString('en-GB').replace(/\//g, '-'); // format as DD-MM-YYYY
+    
+      return [
+        {
+          command: 'dir',
+          output: [
+            ` Volume in drive C is OS`,
+            ` Volume Serial Number is 1234-ABCD`,
+            '',
+            ` Directory of C:\\Users\\You`,
+            '',
+            `${date}  ${time}    <DIR>          .`,
+            `${date}  ${time}    <DIR>          ..`,
+            `${date}  ${time}    <DIR>          Documents`,
+            `${date}  ${time}    <DIR>          Projects`,
+            `${date}  ${time}               3838 index.html`,
+            `${date}  ${time}               4791 info.html`,
+            `${date}  ${time}               82 footer.html`,
+            `${date}  ${time}               670 header.html`,
+            `${date}  ${time}               328 script.js`,
+            `${date}  ${time}               3101 style.css`,
 
+            `               6 File(s)            12810 bytes`,
+            `               4 Dir(s)  105,456,123,392 bytes free`
+          ]
+        },
+        {
+          command: 'cd Projects',
+          output: []
+        },
+        {
+          command: 'cd Main-Site',
+          output: ['']
+        },
+        {
+          command: 'start info.html',
+          output: ['Launching info.html in default browser...']
+        }
+      ];
+    }
+    
+    function createLineElement(text = '', blinking = false) {
+      const line = document.createElement('div');
+      line.className = 'terminal-line';
+      line.textContent = text;
+      if (blinking) {
+        line.classList.add('blinking-cursor');
+      }
+      terminalOutput.appendChild(line);
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+      return line;
+    }
+    
+    function typeText(element, text, delay = 50) {
+      return new Promise((resolve) => {
+        let index = 0;
+        function typeChar() {
+          if (index < text.length) {
+            element.textContent += text[index++];
+            setTimeout(typeChar, delay);
+          } else {
+            element.classList.remove('blinking-cursor');
+            resolve();
+          }
+        }
+        typeChar();
+      });
+    }
+    
+    async function runTerminalAnimation() {
+      // Clear the terminal first
+      terminalOutput.innerHTML = '';
+    
+      const commands = getCommands();
+      for (const cmd of commands) {
+        const cmdLine = createLineElement('C:\\Users\\You> ', true);
+        await typeText(cmdLine, cmd.command);
+    
+        if (cmd.output) {
+          const outputLines = cmd.output;
+          for (const lineText of outputLines) {
+            const outputLine = createLineElement();
+            await typeText(outputLine, lineText, 10);
+      }
+    }
+        await new Promise(res => setTimeout(res, 700));
+      }
+    }
+    
+    // Run once and then every 3 minutes (180,000ms)
+    runTerminalAnimation();
+    setInterval(runTerminalAnimation, 180000); // 3 minutes
+    </script>
+</body>
 </html>

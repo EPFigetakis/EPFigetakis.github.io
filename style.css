@@ -27,6 +27,7 @@
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 2px;
+    color: inherit;
 }
 
 .tagline {
@@ -37,6 +38,7 @@
     text-align: center;
     max-width: 600px;
     margin: 0 0 15px 0;
+    color: inherit;
 }
 
 body {
@@ -79,7 +81,7 @@ p {
 
 .links a {
     text-decoration: none;
-    color: #000000;
+    color: inherit;
     font-weight: 600;
     font-family: "Cutive Mono", monospace;
     font-style: normal;
@@ -111,8 +113,8 @@ p {
 
 
 .nav-link.active {
-    color: #5a5a5a;
-    border-bottom: 2px solid #5a5a5a;
+    color: #6ec545;
+    border-bottom: 2px solid #6ec545;
 }
 
 
@@ -164,4 +166,32 @@ footer {
   50% {
     opacity: 0;
   }
+}
+
+.theme-windows {
+    background-color: #000;
+    color: #fff;
+}
+
+.terminal-output {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 1rem;
+    white-space: pre-wrap;
+    line-height: 1.4;
+}
+  
+
+.terminal-line {
+    display: block;
+}
+  
+.blinking-cursor::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background-color: #fff;
+    margin-left: 4px;
+    animation: blink 1s step-start infinite;
+    vertical-align: bottom;
 }
